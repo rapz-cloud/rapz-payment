@@ -381,6 +381,135 @@
             animation-delay: -5s;
         }
         
+        /* Button Styles */
+        .payment-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .payment-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .copy-button {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: var(--dark-bg);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .copy-button:hover {
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+            box-shadow: 0 0 15px var(--neon-blue);
+            transform: translateY(-3px);
+        }
+        
+        .download-button {
+            background: linear-gradient(45deg, var(--neon-green), var(--neon-blue));
+            color: var(--dark-bg);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+        
+        .download-button:hover {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-green));
+            box-shadow: 0 0 15px var(--neon-green);
+            transform: translateY(-3px);
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 180px;
+        }
+        
+        .instagram-button {
+            background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            box-shadow: 0 0 10px #C13584;
+        }
+        
+        .instagram-button:hover {
+            box-shadow: 0 0 15px #C13584;
+            transform: translateY(-3px);
+        }
+        
+        .tiktok-button {
+            background: linear-gradient(45deg, #000000, #00f2ea, #ff0050);
+            color: white;
+            box-shadow: 0 0 10px #00f2ea;
+        }
+        
+        .tiktok-button:hover {
+            box-shadow: 0 0 15px #00f2ea;
+            transform: translateY(-3px);
+        }
+        
+        .telegram-button {
+            background: linear-gradient(45deg, #0088cc, #00aced);
+            color: white;
+            box-shadow: 0 0 10px #0088cc;
+        }
+        
+        .telegram-button:hover {
+            box-shadow: 0 0 15px #0088cc;
+            transform: translateY(-3px);
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--neon-green);
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px var(--neon-green);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .toast.show {
+            opacity: 1;
+        }
+        
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 15px var(--neon-blue), 
@@ -440,6 +569,21 @@
                 flex-direction: column;
                 text-align: center;
             }
+            
+            .payment-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-button {
+                width: 100%;
+                max-width: 250px;
+            }
         }
     </style>
 </head>
@@ -489,6 +633,11 @@
                     <h3 class="payment-title">DANA</h3>
                     <div class="payment-details">
                         <div class="payment-info">0895-0790-7919</div> A/N AYU LESTARI
+                        <div class="payment-buttons">
+                            <button class="payment-button copy-button" data-number="089507907919">
+                                <i class="fas fa-copy"></i> Salin Nomor
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -496,6 +645,11 @@
                     <h3 class="payment-title">GOPAY</h3>
                     <div class="payment-details">
                         <div class="payment-info">0831-7229-9901</div> A/N RAPZ STORE
+                        <div class="payment-buttons">
+                            <button class="payment-button copy-button" data-number="083172299901">
+                                <i class="fas fa-copy"></i> Salin Nomor
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -505,8 +659,25 @@
                         <div class="qris-container">
                             <img src="https://files.catbox.moe/9ufaxv.jpg" alt="QRIS Payment" class="qris-img">
                         </div>
+                        <div class="payment-buttons">
+                            <button class="payment-button download-button" data-image="https://files.catbox.moe/9ufaxv.jpg">
+                                <i class="fas fa-download"></i> Unduh QRIS
+                            </button>
+                        </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="social-buttons">
+                <button class="social-button instagram-button" data-url="https://www.instagram.com/rapz_yoaimo?igsh=Z2MzdWoyaWNlenk4">
+                    <i class="fab fa-instagram"></i> Instagram
+                </button>
+                <button class="social-button tiktok-button" data-url="https://tiktok.com/@style.fomo34">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </button>
+                <button class="social-button telegram-button" data-url="t.me/rapzzxtamz">
+                    <i class="fab fa-telegram"></i> Telegram
+                </button>
             </div>
             
             <div class="guide-container">
@@ -536,6 +707,8 @@
             </div>
         </div>
     </div>
+
+    <div class="toast" id="toast"></div>
 
     <script>
         // Function to create lightning effects
@@ -588,6 +761,50 @@
         
         // Initial lightning
         createLightning();
+        
+        // Copy number functionality
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const number = this.getAttribute('data-number');
+                navigator.clipboard.writeText(number).then(() => {
+                    showToast('Nomor berhasil disalin!');
+                }).catch(err => {
+                    console.error('Gagal menyalin: ', err);
+                    showToast('Gagal menyalin nomor');
+                });
+            });
+        });
+        
+        // Download QRIS functionality
+        document.querySelector('.download-button').addEventListener('click', function() {
+            const imageUrl = this.getAttribute('data-image');
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = 'QRIS_RAPZ_STORE.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('QRIS berhasil diunduh!');
+        });
+        
+        // Social media buttons functionality
+        document.querySelectorAll('.social-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                window.open(url, '_blank');
+            });
+        });
+        
+        // Toast notification function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
     </script>
 </body>
 </html>
